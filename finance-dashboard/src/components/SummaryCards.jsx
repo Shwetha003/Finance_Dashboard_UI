@@ -25,7 +25,7 @@ export default function SummaryCards() {
 
 function Card({ title, value }) {
   return (
-    <div className="p-4 bg-white dark:bg-gray-900 rounded-xl shadow">
+    <div className="p-4 md:p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
       <h3 className="text-sm text-gray-500">{title}</h3>
       <p className="text-xl font-bold mt-2">₹ {value}</p>
     </div>

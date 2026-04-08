@@ -4,6 +4,14 @@ import { AppContext } from "../context/AppContext";
 export default function InsightsCards() {
   const { state } = useContext(AppContext);
 
+  if (!state.transactions.length) {
+    return (
+      <p className="text-center text-gray-500">
+        No insights available
+      </p>
+    );
+  }
+
   const expenses = state.transactions.filter((t) => t.type === "expense");
   const income = state.transactions.filter((t) => t.type === "income");
 
@@ -50,7 +58,7 @@ export default function InsightsCards() {
       />
 
       {/* Top 3 */}
-      <div className="bg-white dark:bg-gray-900 p-4 rounded-xl shadow">
+      <div className="bg-white dark:bg-gray-900 p-4 md:p-6 rounded-xl shadow">
         <h3 className="font-semibold mb-3">Top 3 Categories</h3>
 
         {top3.map(([cat, amount]) => (
@@ -62,7 +70,7 @@ export default function InsightsCards() {
       </div>
 
       {/* Dynamic observation */}
-      <div className="bg-primary-50 dark:bg-primary-900 p-4 rounded-xl">
+      <div className="bg-primary-50 dark:bg-primary-900 p-4 md:p-6 rounded-xl">
         <h3 className="font-semibold mb-2">Insight</h3>
         <p>
           You are spending most on{" "}
@@ -75,7 +83,7 @@ export default function InsightsCards() {
 
 function Card({ title, value }) {
   return (
-    <div className="bg-white dark:bg-gray-900 p-4 rounded-xl shadow">
+    <div className="bg-white dark:bg-gray-900 p-4 md:p-6 rounded-xl shadow">
       <h3 className="text-sm text-gray-500">{title}</h3>
       <p className="text-xl font-bold mt-2">{value}</p>
     </div>

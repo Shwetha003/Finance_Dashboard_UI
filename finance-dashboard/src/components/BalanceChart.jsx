@@ -12,6 +12,13 @@ import { AppContext } from "../context/AppContext";
 export default function BalanceChart() {
   const { state } = useContext(AppContext);
 
+  if (!state.transactions.length) {
+    return (
+      <div className="p-4 text-center text-gray-500">
+        No data available
+      </div>
+    );
+  }
   // group by month
   const monthlyData = {};
 

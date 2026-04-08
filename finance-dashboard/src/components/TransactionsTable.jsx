@@ -29,7 +29,7 @@ export default function TransactionsTable() {
   });
 
   return (
-    <div className="bg-white dark:bg-gray-900 p-4 rounded-xl shadow overflow-x-auto">
+    <div className="bg-white dark:bg-gray-900 p-4 md:p-6 rounded-xl shadow overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
           <tr className="text-left border-b">
@@ -73,7 +73,7 @@ export default function TransactionsTable() {
 
       {/* EMPTY STATE */}
       {data.length === 0 && (
-        <p className="text-center py-4 text-gray-500">
+        <p className="text-center p-4 md:p-6 text-gray-500">
           No transactions found
         </p>
       )}

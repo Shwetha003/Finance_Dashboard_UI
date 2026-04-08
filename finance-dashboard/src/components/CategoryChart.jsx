@@ -13,6 +13,14 @@ const COLORS = ["#6366f1", "#10b981", "#ef4444", "#f59e0b", "#3b82f6"];
 export default function CategoryChart() {
   const { state } = useContext(AppContext);
 
+  if (!state.transactions.length) {
+    return (
+      <div className="p-4 text-center text-gray-500">
+        No data available
+      </div>
+    );
+  }
+
   const categoryMap = {};
 
   state.transactions
